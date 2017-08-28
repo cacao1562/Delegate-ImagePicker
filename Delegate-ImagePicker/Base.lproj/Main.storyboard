@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Delegate_ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,69 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t3M-yM-Iop">
+                                <rect key="frame" x="0.0" y="113" width="375" height="499"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTP-lD-MBI">
+                                <rect key="frame" x="41" y="48" width="56" height="30"/>
+                                <state key="normal" title="앨범 선택"/>
+                                <connections>
+                                    <action selector="pick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eJW-dv-97U"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtc-ea-Saf">
+                                <rect key="frame" x="168" y="48" width="39" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="39" id="2np-gu-M5o"/>
+                                    <constraint firstAttribute="height" constant="30" id="7yM-7c-ygR"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="Nkx-3S-LZi"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="39" id="heB-O8-UYO"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="qZV-JL-O06"/>
+                                </constraints>
+                                <state key="normal" title="카메라"/>
+                                <connections>
+                                    <action selector="cameraPick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8yT-c6-6Yp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="575-zp-Lqx">
+                                <rect key="frame" x="288" y="48" width="44" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="EKt-8L-9jO"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="G0b-Ac-IgR"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="S9a-fw-jql"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="ZdQ-k1-6wE"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="44" id="aAV-SQ-Vjb"/>
+                                </constraints>
+                                <state key="normal" title="Album"/>
+                                <connections>
+                                    <action selector="albumPick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r4C-o9-KXC"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="575-zp-Lqx" secondAttribute="trailing" constant="43" id="15t-uN-SfX"/>
+                            <constraint firstItem="575-zp-Lqx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="3ct-HL-7mN"/>
+                            <constraint firstItem="jtc-ea-Saf" firstAttribute="centerX" secondItem="t3M-yM-Iop" secondAttribute="centerX" id="4qf-r2-yyT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="t3M-yM-Iop" secondAttribute="bottom" constant="55" id="Ble-dA-Gaf"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kTP-lD-MBI" secondAttribute="trailing" constant="20" symbolic="YES" id="HrB-bW-2rg"/>
+                            <constraint firstItem="575-zp-Lqx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="28" id="IZr-VV-p9S"/>
+                            <constraint firstItem="kTP-lD-MBI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="28" id="MWN-wh-5T2"/>
+                            <constraint firstAttribute="trailing" secondItem="t3M-yM-Iop" secondAttribute="trailing" id="ObG-Xl-MY3"/>
+                            <constraint firstItem="jtc-ea-Saf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="28" id="cN2-wo-ktY"/>
+                            <constraint firstItem="kTP-lD-MBI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="41" id="daa-LT-jvS"/>
+                            <constraint firstItem="t3M-yM-Iop" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gNB-Kn-gEG"/>
+                            <constraint firstItem="t3M-yM-Iop" firstAttribute="top" secondItem="kTP-lD-MBI" secondAttribute="bottom" constant="35" id="zSm-oX-yp2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imgView" destination="t3M-yM-Iop" id="35E-ri-QvD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-98.400000000000006" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>
